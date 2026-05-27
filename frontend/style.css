@@ -1,0 +1,405 @@
+/* =============================================
+   TASKLY — Login Page Styles
+   Paleta: fundo escuro grafite + acento âmbar
+   Fontes: DM Serif Display + DM Sans
+   ============================================= */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Cores */
+  --bg-dark:      #111210;
+  --bg-panel:     #1a1c19;
+  --accent:       #e8a020;
+  --accent-hover: #f5b340;
+  --text-primary: #f0ede6;
+  --text-muted:   #7a7d74;
+  --border:       #2e312b;
+  --input-bg:     #222420;
+  --input-focus:  #2a2d27;
+
+  /* Tipografia */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Espaçamento */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Layout split ---------- */
+.split-layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- Painel Esquerdo ---------- */
+.panel-left {
+  position: absolute;  /* sobrepõe o cadastro-layer */
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background-color: var(--bg-panel);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 3rem 3rem;
+  overflow: hidden;
+  border-right: 1px solid var(--border);
+  z-index: 10;
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 2;
+}
+
+.brand-icon {
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+/* Texto central do painel */
+.panel-text {
+  position: relative;
+  z-index: 2;
+}
+
+.panel-text h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 1.1rem;
+}
+
+.panel-text h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.panel-text p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* Círculos decorativos */
+.decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  opacity: 0.5;
+}
+
+.c1 {
+  width: 340px;
+  height: 340px;
+  bottom: -100px;
+  right: -120px;
+  border-color: var(--accent);
+  opacity: 0.08;
+}
+
+.c2 {
+  width: 220px;
+  height: 220px;
+  bottom: -30px;
+  right: -60px;
+  border-color: var(--accent);
+  opacity: 0.12;
+}
+
+.c3 {
+  width: 100px;
+  height: 100px;
+  bottom: 60px;
+  right: 30px;
+  background-color: var(--accent);
+  opacity: 0.06;
+  border: none;
+}
+
+/* ---------- Painel Direito ---------- */
+.panel-right {
+  flex: 1;
+  margin-left: 45%;   /* empurra para não ficar atrás do panel-left absoluto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  background-color: var(--bg-dark);
+}
+
+/* ---------- Camada de Cadastro (fica embaixo do panel-left) ---------- */
+.cadastro-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background-color: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  z-index: 5;  /* abaixo do panel-left (z-index 10) */
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  animation: fadeUp 0.5s ease both;
+}
+
+/* ---------- Cabeçalho do Formulário ---------- */
+.form-header {
+  margin-bottom: 2.5rem;
+}
+
+.form-header h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.form-header p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* ---------- Formulário ---------- */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-group label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Wrap do input + ícone */
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.input-wrap input {
+  width: 100%;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  padding: 0.85rem 1rem 0.85rem 2.8rem;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.input-wrap input::placeholder {
+  color: #44473f;
+}
+
+.input-wrap input:focus {
+  border-color: var(--accent);
+  background-color: var(--input-focus);
+}
+
+.input-wrap input:focus + .input-icon,
+.input-wrap:focus-within .input-icon {
+  color: var(--accent);
+}
+
+/* Link "Esqueceu?" */
+.forgot-link {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: color 0.2s;
+}
+
+.forgot-link:hover {
+  color: var(--accent);
+}
+
+/* ---------- Botão Principal ---------- */
+.btn-primary {
+  margin-top: 0.4rem;
+  width: 100%;
+  background-color: var(--accent);
+  color: #111210;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* ---------- Link de Cadastro ---------- */
+.register-prompt {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.register-prompt a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.register-prompt a:hover {
+  color: var(--accent-hover);
+}
+
+/* ---------- Estado: modo cadastro — slide do panel-left ---------- */
+.modo-cadastro .panel-left {
+  transform: translateX(122%);  /* sai completamente pela direita */
+}
+
+/* ---------- Animação de entrada ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 720px) {
+  .split-layout {
+    flex-direction: column;
+  }
+
+  .panel-left {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+    padding: 2rem 1.8rem 2.5rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+
+  .panel-right {
+    margin-left: 0;
+    padding: 2.5rem 1.5rem;
+    align-items: flex-start;
+  }
+
+  .cadastro-layer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .panel-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .panel-text p {
+    max-width: 100%;
+  }
+
+  .form-wrapper {
+    max-width: 100%;
+  }
+
+  .modo-cadastro .panel-left {
+    transform: translateY(-100vh);
+  }
+}
