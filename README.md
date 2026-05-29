@@ -229,5 +229,5 @@ Abra `frontend/login.html` com o Live Server do VS Code.
 
 Feito por **Pedro Wagner Florentino**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-seu--perfil-blue?logo=linkedin)](www.linkedin.com/in/pedro-wagner-florentino-394927412)
-[![GitHub](https://img.shields.io/badge/GitHub-seu--usuario-black?logo=github)](https://github.com/PedroWagnerFlorentino)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Pedro--Florentino-blue?logo=linkedin)](www.linkedin.com/in/pedro-wagner-florentino-394927412)
+[![GitHub](https://img.shields.io/badge/GitHub-Pedro--Florentino-black?logo=github)](https://github.com/PedroWagnerFlorentino)
