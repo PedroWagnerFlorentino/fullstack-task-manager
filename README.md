@@ -13,19 +13,26 @@
 
 > Tela de login com animação de slide para o cadastro
 
-![Login](assets/login_screenshot.png)
+![Login](assets/Login_screenshot.png)
+
 
 > Board com cards arrastáveis e indicação visual de prazos
 
+
 ![Board](assets/board.png)
+
 
 > Fazendo login
 
+
 ![Lista](assets/Login.gif)
+
 
 > Criando tarefa
 
+
 ![Lista](assets/Criar_tarefa.gif)
+
 
 ---
 
